@@ -6,8 +6,6 @@ import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 import 'package:get/get_utils/src/extensions/string_extensions.dart';
 
-import 'email_verification.dart';
-
 class SignUp extends GetView {
   final _form = GlobalKey<FormState>();
   final usernameTextController = TextEditingController();
@@ -28,8 +26,6 @@ class SignUp extends GetView {
       // Invalid!
       return;
     }
-    // await userRegController.registerUser(usernameTextController.text,
-    //     passwordTextController.text, mailTextController.text);
     await devRegController.registerDevice();
   }
 
@@ -153,14 +149,12 @@ class SignUp extends GetView {
                     child: ElevatedButton(
                       child: const Text(
                         'ثبت نام',
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 18),
                       ),
                       onPressed: () {
                         _saveForm();
-
                         _submit();
-                        // Navigator.of(context).push(MaterialPageRoute(
-                        //     builder: (context) => const EmailVerification()));
                       },
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(Colors.blue),

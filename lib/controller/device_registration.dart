@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:gardeshpay_task/controller/user_authentication.dart';
 import 'package:gardeshpay_task/main.dart';
 import 'package:gardeshpay_task/view/email_verification.dart';
-import 'package:gardeshpay_task/view/user_authentication.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
@@ -45,14 +44,12 @@ class DeviceRegistrationController extends GetxController {
 
       print(response.body);
       box.write('uuidCode', uuid);
-      // if ((response.body["status"]["is_success"] as bool) == 'true') {
       if (response.statusCode == 200) {
         await userRegController.registerUser(
             username.value, password.value, email.value);
         Get.to( () => const EmailVerification());
       }
 
-      // }
       print(box.read('uuidCode'));
     } catch (err) {
       rethrow;

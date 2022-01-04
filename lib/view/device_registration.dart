@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gardeshpay_task/controller/device_registration.dart';
-import 'package:gardeshpay_task/view/user_authentication.dart';
 import 'package:get/get.dart';
 
 class DeviceRegistration extends GetView {
